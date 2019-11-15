@@ -19,7 +19,8 @@ dt=(0.6*dx)/v;   % 5 point approximation stability
      %t=(0:1:nt-1)*dt-6/(pi*sqrt(2)*f);
 [p,q]=size(model);
 [X,Y]=size(model);X=1:1:X; Z=1:1:Y;
-m=gaussian_smoother(model,Z,X,6);   % initial model: smooth gaussian
+%m=gaussian_smoother(model,Z,X,6);   % initial model: smooth gaussian
+m=imgaussfilt(model,6)   % initial model: smooth gaussian
 %m=3*ones(150,150);
 initial= m; % for saving purpose
 factor=(model.^2)*(dt^2); 
