@@ -2,16 +2,16 @@ clear all; close all; clc;
 
 %% Define your real and initial model and parameters.
 
-model=3000*ones(150,150); model(75:150,:)=4000; % Model definition
+model=3*ones(150,150); model(75:150,:)=4; % Model definition
 %model = awgn(model,50,'measured'); % Add white gaussian noise if necessary
 %model(50:1:70,:)=4;   % initial model
 
 %load('model.mat'); 
 
-nt=550; % Time sampling
+nt=3000; % Time sampling
 xs=10; zs=75;%zs=10:10:140;  % Source position (eg. make zs=10:10:140 for multiple sources)
 recdepth=2;   % receriver line position
-f=20;  % Peak frequency of source  
+f=10;  % Peak frequency of source  
                                             
 v=max(max(model)); 
 dx=0.015; % vertical resolution (dx < v/(f*4))
@@ -20,8 +20,8 @@ dt=(0.6*dx)/v;   % 5 point approximation stability
 [p,q]=size(model);
 [X,Y]=size(model);X=1:1:X; Z=1:1:Y;
 %m=gaussian_smoother(model,Z,X,6);   % initial model: smooth gaussian
-m=imgaussfilt(model,6)   % initial model: smooth gaussian
-%m=3*ones(150,150);
+%m=imgaussfilt(model,6)   % initial model: smooth gaussian
+m=3*ones(150,150);
 initial= m; % for saving purpose
 factor=(model.^2)*(dt^2); 
 %m = awgn(m,60,'measured');         
