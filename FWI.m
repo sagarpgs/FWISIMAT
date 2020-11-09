@@ -45,7 +45,7 @@ gradient = grad_parallel(m,seis,zs,f,dx,dt,recdepth,xs,forward,GW); % Reverse ti
 
 k=1;
 H=eye(size(m));
-while (norm(gradient)>1e-20 && k<=10) % set your consitions for the iterative optimization
+while (norm(gradient)>1e-20 && k<=100) % set your consitions for the iterative optimization
             
  objval(k)=F(m);   % store the objective function at each iteration
                 
