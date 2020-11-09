@@ -20,7 +20,7 @@ parfor i=1:I
    % j=j+1;
 end
 
-gradient=(2/m.^3).*gradient;
+gradient=(2./m.^3).*gradient;
 gradient=normalize(gradient,m,zs,nt,xs,f,dx,dt,recdepth,GW);
 %gradient=gradient+gradient';
 end
